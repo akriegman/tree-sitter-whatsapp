@@ -1,0 +1,17 @@
+#!/bin/bash
+
+function run {
+  tree-sitter generate
+  tree-sitter build
+  tree-sitter parse -c test/chat.txt
+}
+
+function play {
+  build
+  tree-sitter playground
+}
+
+function build {
+  tree-sitter generate
+  tree-sitter build --wasm
+}
